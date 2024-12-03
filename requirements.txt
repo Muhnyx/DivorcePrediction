@@ -1,0 +1,8 @@
+streamlit==1.39.0
+streamlit-audiorecorder==0.0.5
+pandas 
+numpy 
+seaborn==0.13.2
+matplotlib
+PIL
+sklearn
