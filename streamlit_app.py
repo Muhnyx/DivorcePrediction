@@ -4,15 +4,13 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 from PIL import Image
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
     classification_report,
-    roc_curve,
-    auc,
 )
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
