@@ -39,6 +39,7 @@ def introduction():
     st.write(
         """
         ### Welcome!
+
         This tool analyzes data from psychologists to predict divorce likelihood based on questionnaire responses.
 
         Divorce is a growing challenge worldwide. What if we could pinpoint the warning signs before it’s too late?
@@ -46,9 +47,10 @@ def introduction():
         Using the Divorce Predictors Scale (DPS), inspired by Gottman Couples Therapy, we can identify critical factors that lead to divorce.
 
         **Sections**:
-        - **Theory**: Background and context for the prediction model.
-        - **Analysis**: Data exploration and insights.
-        - **Survey**: Fill out a questionnaire to get predictions.
+
+        - **Theory** : Background and context for the prediction model.
+        - **Analysis** : Data exploration and insights.
+        - **Survey** : Fill out a questionnaire to get predictions.
         """
     )
     # Add an image
@@ -63,7 +65,7 @@ def theory():
 
         Divorce rates are rising globally, affecting families and societies at large. Early prediction and intervention can save relationships and reduce the emotional and financial toll associated with divorce.
 
-        Our Divorce Prediction App leverages psychological research and data science to provide insights into marital stability. Based on the Divorce Predictors Scale (DPS), which is grounded in Gottman Couples Therapy, we analyze key behavioral indicators that may predict divorce.
+        This Divorce Prediction App leverages psychological research and data science to provide insights into marital stability. Based on the Divorce Predictors Scale (DPS), which is grounded in Gottman Couples Therapy, we analyze key behavioral indicators that may predict divorce.
 
         ### The Four Horsemen of the Apocalypse
 
@@ -103,14 +105,16 @@ def theory():
         r"P(y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1X_1 + \ldots + \beta_nX_n)}}"
     )
 
+    st.write("where:")
+    st.latex(r"""
+        \begin{align*}
+        P(y=1|X)  \text{ is the probability of the instance belonging to the 'Divorced' class.}\\
+        \beta_0 \text{ is the intercept term.}\\
+        \beta_i  \text{ are the coefficients for each feature }  X_i \\
+        \end{align*}
+    """)
     st.write(
         """
-        where:
-
-        - \( P(y=1|X) \) is the probability of the instance belonging to the 'Divorced' class.
-        - \( \beta_0 \) is the intercept term.
-        - \( \beta_i \) are the coefficients for each feature \( X_i \).
-
         The coefficients represent the influence of each feature on the probability of divorce.
 
         ### Data Preprocessing
@@ -211,8 +215,9 @@ def analysis():
     sns.heatmap(corr_matrix, cmap="coolwarm", ax=ax3)
     st.pyplot(fig3)
 
+
     # Pairplot
-    st.write("### Pairplot of Selected Features")
+    st.write("### Pairplot of Selected Features (Please wait to load)")
     selected_features = X.columns[:5]  # Select first 5 features for simplicity
     pairplot = sns.pairplot(data[selected_features], diag_kind="kde")
     fig = pairplot.fig  # Extract the figure object
@@ -223,7 +228,7 @@ def analysis():
     models = {
         "Logistic Regression": LogisticRegression(),
         "Random Forest": RandomForestClassifier(),
-        "Neural Network": MLPClassifier(max_iter=1000),
+        "Neural Network": MLPClassifier(),
     }
     results = {}
     for model_name, model_instance in models.items():
