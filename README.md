@@ -21,7 +21,7 @@ The **Divorce Prediction App** is a psychological analysis tool hosted on **Stre
 2. Receive predictions about marital status:
    - Probability of divorce.
    - Probability of non-divorce.
-3. Explore actionable feedback to improve relationship health.
+3. Get feedback to improve relationship health.
 
 ---
 
