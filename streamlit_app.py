@@ -238,6 +238,15 @@ def analysis():
         results[model_name] = acc
     results_df = pd.DataFrame.from_dict(results, orient="index", columns=["Accuracy"])
     st.table(results_df)
+    st.write("""
+    ## Highest Correlations 
+
+    1. We're just starting a discussion before I know what's going on.
+    2. We share the same views about being happy in our life with my spouse.
+    3. My spouse and I have similar ideas about how roles should be in marriage.
+    4. My spouse and I have similar ideas about how marriage should be.
+    5. I think that one day in the future, when I look back, I see that my spouse and I have been in harmony with each other.
+    """)
 
 def survey():
     st.title("Survey")
