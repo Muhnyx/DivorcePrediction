@@ -250,7 +250,7 @@ def analysis():
 
 def survey():
     st.title("Survey")
-    st.write("Fill out the survey below to predict marital status.")
+    st.write("Fill out the survey below to predict marital status. All responses are on a 5 point scale (0=Never, 1=Seldom, 2=Averagely, 3=Frequently, 4=Always).")
     
     # Read the reference.tsv to get the questions
     ref = pd.read_csv("reference.tsv", delimiter="|", index_col=0)
